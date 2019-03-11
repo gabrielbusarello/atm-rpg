@@ -10,7 +10,7 @@ public class Main {
         int numeroDados = 0;
         String tipoDado = "";
         int numeroModificador = 0;
-        ArrayList<String> resultado = new ArrayList<String>();
+        ArrayList<String> resultados = new ArrayList<String>();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Bem vindo ao rolador de dados TC130");
         System.out.println("Quantos dados deseja rolar?");
@@ -24,13 +24,16 @@ public class Main {
                 System.out.println("Para o dado " + (i + 1) + ", qual o número de modificadores?");
                 numeroModificador = scanner.nextInt();
                 DadoNumero dado = new DadoNumero(numeroLados, numeroModificador);
-                resultado.add(String.valueOf(dado.geraResultado()));
+                resultados.add(String.valueOf(dado.geraResultado()));
             } else {
                 DadoLetra dado = new DadoLetra(numeroLados);
-                resultado.add(dado.geraResultado());
+                resultados.add(dado.geraResultado());
             }
         }
         System.out.println("Rolando os dados... Reze para não ser uma falha crítica haha");
-        System.out.println(resultado);
+
+        for (int i = 0; i < resultados.size(); i++) {
+            System.out.println("O resultado do dado " + (i + 1) + " é: " + resultados.get(i));
+        }
     }
 }
